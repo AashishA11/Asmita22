@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Asmita\'22</string>
+    <string name="home">Home</string>
+    <string name="plus">plus</string>
+    <string name="search">Search</string>
+    <string name="user">Profile</string>
+    <string name="sponsers">Sponsers</string>
+    <string name="team">Team</string>
+    <string name="notifications">Notifications</string>
+    <string name="content">   Asmita is the Annual Sports Fest of IIIT Allahabad. As one of the largest sports fests of India ,
+        it is a medium to promote sports and inculcate healthy ... IIIT-A is one of the best experience anyone can have, be it the 24 hours open labs
+        (which is generally used as a battleground for late night inter-department CS matches which usually extends till early dawn) or the football enthusiasts
+        (U can find them fighting for the ball at 3 AM on a cold foggy December night, if u are passing by the ground)..
+
+         Asmita is the Annual Sports Fest of IIIT Allahabad. As one of the largest sports fests of India ,
+        it is a medium to promote sports and inculcate healthy ... IIIT-A is one of the best experience anyone can have, be it the 24 hours open labs
+        (which is generally used as a battleground for late night inter-department CS matches which usually extends till early dawn) or the football enthusiasts
+        (U can find them fighting for the ball at 3 AM on a cold foggy December night, if u are passing by the ground)..
+
+         Asmita is the Annual Sports Fest of IIIT Allahabad. As one of the largest sports fests of India ,
+        it is a medium to promote sports and inculcate healthy ... IIIT-A is one of the best experience anyone can have, be it the 24 hours open labs
+        (which is generally used as a battleground for late night inter-department CS matches which usually extends till early dawn) or the football enthusiasts
+        (U can find them fighting for the ball at 3 AM on a cold foggy December night, if u are passing by the ground)..
+  </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
