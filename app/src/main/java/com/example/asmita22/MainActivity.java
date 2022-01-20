@@ -3,16 +3,22 @@ package com.example.asmita22;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.asmita22.Adaptor.homeAdaptor;
 import com.example.asmita22.Fragment.HomeFragment;
 import com.example.asmita22.Fragment.NotificationFragment;
 import com.example.asmita22.Fragment.SponsorsFragment;
 import com.example.asmita22.Fragment.TeamFragment;
+import com.example.asmita22.Models.homeModel;
 import com.example.asmita22.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         getSupportActionBar().hide();
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 //        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
