@@ -63,10 +63,12 @@
             added earlier in strings.xml file.This is simply the
             the content to be scrolled -->
         <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="8sp"
             android:padding="16dp"
+
             android:text="@string/content"
             android:textSize="20sp" />
     </androidx.core.widget.NestedScrollView>
