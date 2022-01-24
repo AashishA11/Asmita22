@@ -18,11 +18,8 @@ public class TrixxterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_trixxter);
 
         getSupportActionBar().hide();
-
-
         viewPager=findViewById(R.id.ViewPager);
         viewPager.setAdapter(new fragmentAdaptor(getSupportFragmentManager()));
-
         tabLayout=findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
     }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "341934216919",
+    "project_id": "asmita-22",
+    "storage_bucket": "asmita-22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341934216919:android:c37cf8a61c129c09ba0292",
+        "android_client_info": {
+          "package_name": "com.example.asmita22"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341934216919-nikjfm0fpv56jc30uhl7mq17ti9q1jl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlPw8DF4d2cDubUMJyRjTDbG0djlV_dgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341934216919-nikjfm0fpv56jc30uhl7mq17ti9q1jl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
