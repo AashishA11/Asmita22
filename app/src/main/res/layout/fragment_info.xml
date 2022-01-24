@@ -13,7 +13,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:background="@drawable/info_boder"
             android:orientation="vertical" >
             <TextView
@@ -24,20 +23,24 @@
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"/>
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:text="Insta Link"
-                android:id="@+id/tv_insta"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:text="Facebook Link"
-                android:id="@+id/tv_fb"
-                android:textStyle="bold"
-                android:textSize="30sp"
-                android:layout_height="wrap_content"/>
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/iv_insta"
+                    android:layout_weight="1"
+                    android:src="@drawable/instagram"/>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:id="@+id/iv_facebook"
+                    android:src="@drawable/facebook"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
