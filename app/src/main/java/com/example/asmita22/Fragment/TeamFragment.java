@@ -27,8 +27,6 @@ public class TeamFragment extends Fragment {
     public TeamFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +37,7 @@ public class TeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentTeamBinding.inflate(inflater,container,false);
         ArrayList<TeamModel> arrayList=new ArrayList<>();
-        String img="https://picsum.photos/200";
+        String img="";
         arrayList.add(new TeamModel(img,"Dr. Sunnel Yadav", "Faculty In-Charge","Mail"));
         arrayList.add(new TeamModel(img,"Harsh Bhardwaj", "President","Mail"));
         arrayList.add(new TeamModel(img,"Dr. Sunnel Yadav", "Faculty In-Charge","Mail"));

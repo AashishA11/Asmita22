@@ -44,10 +44,10 @@ public class homeAdaptor extends RecyclerView.Adapter<homeAdaptor.viewholder> {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(context, TrixxterActivity.class);
+                intent.putExtra("eventName",model.getEventName());
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override
