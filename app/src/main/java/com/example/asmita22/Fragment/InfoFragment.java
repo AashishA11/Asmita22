@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asmita22.R;
+import com.example.asmita22.TrixxterActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
@@ -55,7 +56,10 @@ public class InfoFragment extends Fragment {
         info_txt=(TextView) view.findViewById(R.id.info_TV);
         insta_link=(ImageView) view.findViewById(R.id.iv_insta);
         fb_link=(ImageView) view.findViewById(R.id.iv_facebook);
-        DocumentReference documentReference=firestore.collection("events").document("BGMI");
+        TrixxterActivity activity = (TrixxterActivity) getActivity();
+        String eventName = activity.getName();
+
+        DocumentReference documentReference=firestore.collection("events").document(eventName);
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {

@@ -27,7 +27,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="@color/green"
+            app:contentScrim="@color/derkGrey"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <!--We are adding the image that we have added earlier
