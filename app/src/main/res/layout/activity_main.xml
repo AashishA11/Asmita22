@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#313130"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -22,9 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
-        android:background="#352323"
+        android:background="#313130"
         android:scrollIndicators="left"
         app:itemTextColor="@color/white"
+        app:itemIconTint="@color/item_drawer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -38,12 +38,12 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding= FragmentHomeBinding.inflate(inflater,container,false);
         ArrayList<homeModel> list=new ArrayList<>();
-        list.add(new homeModel(R.drawable.p,"Burger"));
-        list.add(new homeModel(R.drawable.p,"CHESS"));
-        list.add(new homeModel(R.drawable.p,"CRICKET"));
-        list.add(new homeModel(R.drawable.p,"FOOTBALL"));
-        list.add(new homeModel(R.drawable.p,"COD"));
-        list.add(new homeModel(R.drawable.p,"BGMI"));
+        list.add(new homeModel(R.drawable.asmita_new,"Burger"));
+        list.add(new homeModel(R.drawable.asmita_new,"CHESS"));
+        list.add(new homeModel(R.drawable.asmita_new,"CRICKET"));
+        list.add(new homeModel(R.drawable.asmita_new,"FOOTBALL"));
+        list.add(new homeModel(R.drawable.asmita_new,"COD"));
+        list.add(new homeModel(R.drawable.bgmi,"BGMI"));
 
         homeAdaptor adaptor=new homeAdaptor(list,getContext());
         binding.HomeRV.setAdapter(adaptor);

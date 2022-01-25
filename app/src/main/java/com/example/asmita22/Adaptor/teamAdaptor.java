@@ -2,8 +2,12 @@ package com.example.asmita22.Adaptor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -41,7 +45,15 @@ public class teamAdaptor extends RecyclerView.Adapter<teamAdaptor.viewholder> {
         final TeamModel model= list.get(position);
         holder.name.setText(model.getName());
         holder.position.setText(model.getPosition());
-//        Glide.with(context).load("http://goo.gl/gEgYUd").into(holder.img);
+        String pos=new Integer(position).toString();
+        String uri;
+        if(position==0) {
+            uri ="@drawable/" + "a" + pos;
+        }
+        else uri="@drawable/asmita_new";
+        int imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
+        Drawable res = context.getResources().getDrawable(imageResource);
+        holder.img.setImageDrawable(res);
     }
 
     @Override
