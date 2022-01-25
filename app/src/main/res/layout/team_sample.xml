@@ -7,7 +7,7 @@
     android:background="#313130"
     android:orientation="horizontal">
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:layout_width="60dp"
+            android:layout_width="70dp"
             android:id="@+id/team_img"
             android:layout_weight="0"
             android:background="#313130"
@@ -17,7 +17,7 @@
             app:civ_border_color="#313130"
             app:civ_border_width="0sp"
             android:scaleType="centerCrop"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"/>
         <LinearLayout
@@ -32,25 +32,26 @@
                 android:id="@+id/team_name"
                 android:text="Dr. X Y Z"
                 android:textStyle="bold"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="28dp"/>
             <TextView
                 android:id="@+id/team_position"
                 android:text="Positon XYZ"
                 android:textStyle="bold"
+                android:layout_marginTop="4dp"
                 android:textSize="15sp"
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
         </LinearLayout>
         <com.mikhaellopez.circularimageview.CircularImageView
             android:layout_gravity="right"
             android:layout_weight="0"
             android:id="@+id/team_mail"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="5dp"
             android:src="@drawable/ic_mail_foreground"
-            android:layout_width="70dp"
-            android:layout_height="70dp"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
 </LinearLayout>

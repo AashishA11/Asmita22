@@ -45,12 +45,7 @@ public class teamAdaptor extends RecyclerView.Adapter<teamAdaptor.viewholder> {
         final TeamModel model= list.get(position);
         holder.name.setText(model.getName());
         holder.position.setText(model.getPosition());
-        String pos=new Integer(position).toString();
-        String uri;
-        if(position==0) {
-            uri ="@drawable/" + "a" + pos;
-        }
-        else uri="@drawable/asmita_new";
+        String uri= model.getImg();
         int imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
         Drawable res = context.getResources().getDrawable(imageResource);
         holder.img.setImageDrawable(res);
