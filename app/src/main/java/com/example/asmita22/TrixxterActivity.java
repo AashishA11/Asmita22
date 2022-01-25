@@ -14,17 +14,22 @@ public class TrixxterActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     TextView EventName;
+     String Event_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trixxter);
         EventName=findViewById(R.id.trixxter_event_name);
-        String Event_name=getIntent().getStringExtra("eventName");
+        Event_name=getIntent().getStringExtra("eventName");
+
         EventName.setText(Event_name);
         getSupportActionBar().hide();
         viewPager=findViewById(R.id.ViewPager);
         viewPager.setAdapter(new fragmentAdaptor(getSupportFragmentManager()));
         tabLayout=findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+    }
+   public String getName(){
+        return Event_name;
     }
 }
