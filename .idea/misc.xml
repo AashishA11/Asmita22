@@ -27,8 +27,18 @@
         <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/activity_trixxter.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_info.xml" value="0.264" />
+<<<<<<< HEAD
+        <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_notification.xml" value="0.21014492753623187" />
+        <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_orgnaziers.xml" value="0.25" />
+        <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_results.xml" value="0.21557971014492755" />
+        <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_sponsors.xml" value="0.25" />
+        <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_team.xml" value="0.2" />
+        <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/home_sample.xml" value="0.4" />
+        <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/notification_layout.xml" value="0.4" />
+=======
         <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/fragment_team.xml" value="0.136" />
         <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/home_sample.xml" value="0.1" />
+>>>>>>> c4ea8fd4bc4234bd894227ad7f4642f1058ff214
         <entry key="..\:/Users/tabis/AndroidStudioProjects/Asmita22/app/src/main/res/layout/team_sample.xml" value="0.6" />
       </map>
     </option>
