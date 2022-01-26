@@ -47,6 +47,7 @@ public class fragmentAdaptor extends FragmentPagerAdapter {
 
         if (position==0){
             title="Info";
+
         }
         else if (position==1){
             title="Fixtures";
@@ -57,7 +58,6 @@ public class fragmentAdaptor extends FragmentPagerAdapter {
         else if (position==3){
             title="Organizers";
         }
-
         return title;
     }
 

@@ -12,17 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:fontFamily="@font/inconsolata_semibold"
         android:text="Asmita 2022"
         android:textColor="@color/white"
         android:padding="15dp"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/derkGrey"
+        android:background="#313130"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
         android:elevation="12dp"
         app:tabIndicatorColor="@color/lightGrey"
         app:tabSelectedTextColor="@color/white"
