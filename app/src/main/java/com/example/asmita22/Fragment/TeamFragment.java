@@ -37,16 +37,16 @@ public class TeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentTeamBinding.inflate(inflater,container,false);
         ArrayList<TeamModel> arrayList=new ArrayList<>();
-        arrayList.add(new TeamModel("@drawable/a0","Dr. Sunnel Yadav", "Faculty In-Charge","Mail"));
-        arrayList.add(new TeamModel("@drawable/a1","Mr. Harsh Bhardwaj", "President","Mail"));
-        arrayList.add(new TeamModel("@drawable/a2","Mr. Sahil Udayasingh", "General Secretary","Mail"));
-        arrayList.add(new TeamModel("@drawable/a3","Ashish Tyagi", "Sports Secretary","Mail"));
-        arrayList.add(new TeamModel("@drawable/a4","Harsh Meena", "Fest Coordinator","Mail"));
-        arrayList.add(new TeamModel("@drawable/a5","Hritik Chauhan", "Fest Coordinator","Mail"));
-        arrayList.add(new TeamModel("@drawable/a6","Tushar Kumar ", "Head Public Relations","Mail"));
-        arrayList.add(new TeamModel("@drawable/a7","Pavika Chaudhary", "Head Public Relations","Mail"));
-        arrayList.add(new TeamModel("@drawable/a8","Chaitanya Joshi", "Head Media and Publicity","Mail"));
-        arrayList.add(new TeamModel("@drawable/a9","Ankit Chauhan", "Head Hospitality And Travel","Mail"));
+        arrayList.add(new TeamModel("@drawable/a00","Dr. Sunnel Yadav", "Faculty In-Charge","Mail"));
+        arrayList.add(new TeamModel("@drawable/a01","Mr. Harsh Bhardwaj", "President","Mail"));
+        arrayList.add(new TeamModel("@drawable/a02","Mr. Sahil Udayasingh", "General Secretary","Mail"));
+        arrayList.add(new TeamModel("@drawable/a03","Ashish Tyagi", "Sports Secretary","Mail"));
+        arrayList.add(new TeamModel("@drawable/a04","Harsh Meena", "Fest Coordinator","Mail"));
+        arrayList.add(new TeamModel("@drawable/a05","Hritik Chauhan", "Fest Coordinator","Mail"));
+        arrayList.add(new TeamModel("@drawable/a06","Tushar Kumar ", "Head Public Relations","Mail"));
+        arrayList.add(new TeamModel("@drawable/a07","Pavika Chaudhary", "Head Public Relations","Mail"));
+        arrayList.add(new TeamModel("@drawable/a08","Chaitanya Joshi", "Head Media and Publicity","Mail"));
+        arrayList.add(new TeamModel("@drawable/a09","Ankit Chauhan", "Head Hospitality And Travel","Mail"));
         arrayList.add(new TeamModel("@drawable/a10","Nitesh Rawat", "Head Hospitality And Travel","Mail"));
         arrayList.add(new TeamModel("@drawable/a11","Vasu Gupta", "Head Hospitality And Travel","Mail"));
         arrayList.add(new TeamModel("@drawable/a12","Ritu Kiran Murmu", "Head Registration","Mail"));
@@ -100,7 +100,7 @@ public class TeamFragment extends Fragment {
         arrayList.add(new TeamModel("@drawable/a60","Shashirith", "Creatives","Mail"));
         arrayList.add(new TeamModel("@drawable/a61","Anshika Jain", "Creatives","Mail"));
         arrayList.add(new TeamModel("@drawable/a62","Aashish Agarwal", "App Operations","Mail"));
-        arrayList.add(new TeamModel("@drawable/a63","Tabish Malik", "App Operations","Mail"));
+        arrayList.add(new TeamModel("@drawable/a63","Tabish Malik", "App Operations","7456990499"));
         teamAdaptor adaptor=new teamAdaptor(arrayList,getContext());
         binding.TeamRV.setAdapter(adaptor);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this.getContext());

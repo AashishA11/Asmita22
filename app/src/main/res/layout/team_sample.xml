@@ -51,7 +51,7 @@
             android:layout_weight="0"
             android:id="@+id/team_mail"
             android:layout_marginRight="5dp"
-            android:src="@drawable/ic_mail_foreground"
+            android:src="@drawable/ic_phone_foreground"
             android:layout_width="60dp"
             android:layout_height="60dp"/>
 </LinearLayout>

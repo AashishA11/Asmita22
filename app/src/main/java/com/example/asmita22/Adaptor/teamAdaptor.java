@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,6 +51,33 @@ public class teamAdaptor extends RecyclerView.Adapter<teamAdaptor.viewholder> {
         int imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
         Drawable res = context.getResources().getDrawable(imageResource);
         holder.img.setImageDrawable(res);
+        if(model.getName().equals("Dr. Sunnel Yadav")){
+            String ur="@drawable/ic_mail_foreground";
+            int imgResource = context.getResources().getIdentifier(ur, null, context.getPackageName());
+            Drawable re = context.getResources().getDrawable(imgResource);
+            holder.mail.setImageDrawable(re);
+        }
+        holder.mail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(model.getName().equals("Dr. Sunnel Yadav")){
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("plain/text");
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "iit2020180@iiita.ac.in" });
+                    context.startActivity(Intent.createChooser(intent, ""));
+                }
+                else {
+                    String phone = model.getMail();
+                    Uri u = Uri.parse("tel:" + phone);
+                    Intent i = new Intent(Intent.ACTION_DIAL, u);
+                    try {
+                        context.startActivity(i);
+                    } catch (SecurityException s) {
+                        Toast.makeText(context, "An error occurred", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
     }
 
     @Override
