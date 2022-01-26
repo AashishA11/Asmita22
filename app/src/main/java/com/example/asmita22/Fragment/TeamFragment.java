@@ -37,7 +37,6 @@ public class TeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentTeamBinding.inflate(inflater,container,false);
         ArrayList<TeamModel> arrayList=new ArrayList<>();
-        String img="";
         arrayList.add(new TeamModel("@drawable/a0","Dr. Sunnel Yadav", "Faculty In-Charge","Mail"));
         arrayList.add(new TeamModel("@drawable/a1","Mr. Harsh Bhardwaj", "President","Mail"));
         arrayList.add(new TeamModel("@drawable/a2","Mr. Sahil Udayasingh", "General Secretary","Mail"));
