@@ -16,6 +16,15 @@
             android:id="@+id/ll1"
             android:background="@drawable/info_boder"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tittle_info"
+                android:text="Event"
+                android:gravity="center"
+                android:fontFamily="@font/inconsolata_semibold"
+                android:textColor="#f8c60a"
+                android:textSize="30sp"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -34,9 +43,9 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="Please Wait we are getting latest info....."
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansmedium"
-                    android:textSize="30sp"/>
+                    android:textColor="#FFFFF2"
+                    android:fontFamily="@font/inconsolata_semibold"
+                    android:textSize="20sp"/>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"

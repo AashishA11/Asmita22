@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
         list.add(new homeModel(R.drawable.rocketleague,"Rocket League"));
         list.add(new homeModel(R.drawable.challengeweek,"Challenge Week"));
         list.add(new homeModel(R.drawable.smashkarts,"Smash Karts"));
-        list.add(new homeModel(R.drawable.valorent,"Valorent"));
+        list.add(new homeModel(R.drawable.valorent,"Valorant"));
         list.add(new homeModel(R.drawable.auction,"Auction"));
          list.add(new homeModel(R.drawable.chess,"Chess"));
 

@@ -21,8 +21,6 @@ public class TrixxterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_trixxter);
         EventName=findViewById(R.id.trixxter_event_name);
         Event_name=getIntent().getStringExtra("eventName");
-
-        EventName.setText(Event_name);
         getSupportActionBar().hide();
         viewPager=findViewById(R.id.ViewPager);
         viewPager.setAdapter(new fragmentAdaptor(getSupportFragmentManager()));
