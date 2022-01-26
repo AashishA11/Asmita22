@@ -62,13 +62,11 @@ tools:context=".Fragment.SponsorsFragment">
     <!--In textview we will be adding the text that i have
         added earlier in strings.xml file.This is simply the
         the content to be scrolled -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/SponsorRv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lineSpacingExtra="8sp"
-        android:padding="16dp"
-        android:text="@string/content"
-        android:textSize="20sp" />
+        android:layout_height="wrap_content" />
 </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
