@@ -115,7 +115,7 @@ public class ResultsFragment extends Fragment {
             }
 
             //Create Path to save Image
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/AsmitaResults22"); //Creates app specific folder
+            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/AsmitaResults2022"); //Creates app specific folder
 
             if(!path.exists()) {
                 path.mkdirs();
@@ -148,7 +148,7 @@ public class ResultsFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            showToast("Result Saved in Pictures/AsmitaIIITA!");
+            showToast("Result Saved in Pictures/AsmitaResults2022!");
         }
     }
     void showToast(String msg){
