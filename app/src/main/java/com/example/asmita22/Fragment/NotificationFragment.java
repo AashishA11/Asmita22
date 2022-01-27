@@ -43,6 +43,11 @@ public class NotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         firebaseDatabase=FirebaseDatabase.getInstance();
         binding = FragmentNotificationBinding.inflate(inflater,container,false);
+        getNotification();
+        return binding.getRoot();
+    }
+
+    private void getNotification() {
         ArrayList<NotificationModel> arrayList=new ArrayList<>();
         DatabaseReference reference=firebaseDatabase.getReference().child("Updates");
         notificationAdaptor adaptor=new notificationAdaptor(arrayList,getContext());
@@ -67,6 +72,5 @@ public class NotificationFragment extends Fragment {
 
             }
         });
-        return binding.getRoot();
     }
 }

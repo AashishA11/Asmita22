@@ -2,65 +2,92 @@ package com.example.asmita22.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.asmita22.Adaptor.teamAdaptor;
+import com.example.asmita22.Models.TeamModel;
 import com.example.asmita22.R;
+import com.example.asmita22.TrixxterActivity;
+import com.example.asmita22.databinding.FragmentOrgnaziersBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link OrgnaziersFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class OrgnaziersFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public OrgnaziersFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment OrgnaziersFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static OrgnaziersFragment newInstance(String param1, String param2) {
-        OrgnaziersFragment fragment = new OrgnaziersFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    FragmentOrgnaziersBinding binding;
+    FirebaseFirestore firestore;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_orgnaziers, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentOrgnaziersBinding.inflate(inflater,container,false);
+        firestore=FirebaseFirestore.getInstance();
+        TrixxterActivity activity = (TrixxterActivity) getActivity();
+        String eventName = activity.getName();
+        ArrayList<TeamModel> arrayList=new ArrayList<>();
+        teamAdaptor adaptor=new teamAdaptor(arrayList,getContext());
+        DocumentReference reference=firestore.collection("Organizers").document(eventName);
+        reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                int pos=0;
+                if(!documentSnapshot.getString("org1").equals("-1")) {
+                    String name=documentSnapshot.getString("org1");
+                    String pic="@drawable/"+name.substring(0,3);
+                    String phone=name.substring(3,13);
+                    name=name.substring(13);
+                    System.out.println("Name :"+name +" "+"Pic :"+pic);
+                    arrayList.add(new TeamModel(pic,name,"Team Asmita 2022",phone));
+                    adaptor.notifyItemInserted(pos++);
+                }
+                if(!documentSnapshot.getString("org2").equals("-1")) {
+                    String name=documentSnapshot.getString("org2");
+                    String pic="@drawable/"+name.substring(0,3);
+                    String phone=name.substring(3,13);
+                    name=name.substring(13);
+                    System.out.println("Name :"+name +" "+"Pic :"+pic);
+                    arrayList.add(new TeamModel(pic,name,"Team Asmita 2022",phone));
+                    adaptor.notifyItemInserted(pos++);
+                }
+                if(!documentSnapshot.getString("org3").equals("-1")) {
+                    String name=documentSnapshot.getString("org3");
+                    String pic="@drawable/"+name.substring(0,3);
+                    String phone=name.substring(3,13);
+                    name=name.substring(13);
+                    System.out.println("Name :"+name +" "+"Pic :"+pic);
+                    arrayList.add(new TeamModel(pic,name,"Team Asmita 2022",phone));
+                    adaptor.notifyItemInserted(pos++);
+                }
+                if(!documentSnapshot.getString("org4").equals("-1")) {
+                    String name=documentSnapshot.getString("org4");
+                    String pic="@drawable/"+name.substring(0,3);
+                    String phone=name.substring(3,13);
+                    name=name.substring(13);
+                    System.out.println("Name :"+name +" "+"Pic :"+pic);
+                    arrayList.add(new TeamModel(pic,name,"Team Asmita 2022",phone));
+                    adaptor.notifyItemInserted(pos++);
+                }
+            }
+        });
+        binding.OrganizerRV.setAdapter(adaptor);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this.getContext());
+        binding.OrganizerRV.setLayoutManager(layoutManager);
+        return binding.getRoot();
     }
 }

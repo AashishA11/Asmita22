@@ -32,7 +32,7 @@ import java.lang.reflect.Field;
 
 public class InfoFragment extends Fragment {
     FirebaseFirestore firestore;
-    public  TextView info_txt;
+    public  TextView info_txt,tittle_tv;
     public ImageView insta_link,fb_link;
     View view=null;
     public InfoFragment() {
@@ -54,11 +54,12 @@ public class InfoFragment extends Fragment {
         view=inflater.inflate(R.layout.fragment_info, container, false);
         firestore=FirebaseFirestore.getInstance();
         info_txt=(TextView) view.findViewById(R.id.info_TV);
+        tittle_tv=(TextView) view.findViewById(R.id.tittle_info);
         insta_link=(ImageView) view.findViewById(R.id.iv_insta);
         fb_link=(ImageView) view.findViewById(R.id.iv_facebook);
         TrixxterActivity activity = (TrixxterActivity) getActivity();
         String eventName = activity.getName();
-
+        tittle_tv.setText(eventName);
         DocumentReference documentReference=firestore.collection("events").document(eventName);
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override

@@ -28,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentScrim="@color/derkGrey"
-            app:title="@string/home"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <!--We are adding the image that we have added earlier
@@ -62,8 +61,7 @@
             android:id="@+id/HomeRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/home_sample"
-             />
+            tools:listitem="@layout/home_sample" />
 
 
        </androidx.core.widget.NestedScrollView>
