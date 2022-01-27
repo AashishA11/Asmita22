@@ -39,10 +39,6 @@ public class InfoFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static InfoFragment newInstance(String param1, String param2) {
-        InfoFragment fragment = new InfoFragment();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
