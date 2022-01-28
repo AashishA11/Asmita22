@@ -13,7 +13,8 @@
         <TextView
             android:layout_width="match_parent"
             android:text="Results are not uploaded yet...."
-            android:textSize="30sp"
+            android:textSize="35sp"
+            android:layout_margin="10dp"
             android:id="@+id/default_result_tv"
             android:textColor="#FFFFF2"
             android:fontFamily="@font/inconsolata_semibold"
@@ -22,6 +23,7 @@
             android:layout_width="match_parent"
             android:src="@drawable/asmita_info"
             android:id="@+id/default_result_iv"
+            android:layout_margin="10dp"
             android:foregroundGravity="center"
             android:layout_height="match_parent"/>
         <LinearLayout
