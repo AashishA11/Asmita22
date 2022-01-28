@@ -4,6 +4,10 @@ public class SponsorsModel {
     int img;
     String SponsorName;
 
+    public SponsorsModel(String sponsorName) {
+        SponsorName = sponsorName;
+    }
+
     public SponsorsModel(int img, String sponsorName) {
         this.img = img;
         SponsorName = sponsorName;
