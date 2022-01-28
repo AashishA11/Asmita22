@@ -29,6 +29,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +41,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Document;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -78,50 +82,26 @@ public class SponsorsFragment extends Fragment {
         //SponserImg=(ImageView) view.findViewById(R.id.SponsorImage);
         //SFRV=(RecyclerView) view.findViewById(R.id.SponsorRv);
         ArrayList<SponsorsModel> list=new ArrayList<>();
-//        list.add(new SponsorsModel(R.drawable.trixxter,"Trixxter"));
-//        list.add(new SponsorsModel(R.drawable.sketch,"Sketch"));
-//        list.add(new SponsorsModel(R.drawable.bgmi,"BGMI"));
-//        list.add(new SponsorsModel(R.drawable.scribble,"Scribble"));
-//        list.add(new SponsorsModel(R.drawable.sportquiz,"Sports Quiz"));
-
-
-
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Sponsers");
+        CollectionReference Reference=firestore.collection("Sponsers");
         SponsorAdaptor adaptor=new SponsorAdaptor(list,getContext());
-        //GridLayoutManager layoutManager=new GridLayoutManager( getContext(),2);
+        binding.SponsorRv.setAdapter(adaptor);
         LinearLayoutManager layoutManager =new LinearLayoutManager(getContext());
         binding.SponsorRv.setLayoutManager(layoutManager);
-        binding.SponsorRv.setAdapter(adaptor);
-
-        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        Reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                int pos=0;
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    String Name;
-                    int Image;
-                    Name=postSnapshot.child("Name").getValue().toString();
-                   // Image=postSnapshot.child("Image").getValue().toString();
-                     list.add(new SponsorsModel(Name));
-                    adaptor.notifyItemInserted(pos++);
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    int pos=0;
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        SponsorsModel model=new SponsorsModel(document.getString("Image"),document.getString("Name"),document.getString("link"));
+                        list.add(model);
+                        adaptor.notifyItemInserted(pos++);
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Please try again later", Toast.LENGTH_SHORT).show();
                 }
-                // binding.SponsorRv.hideShimmerAdapter();
-               // adaptor.notifyDataSetChanged();
-//                mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
-//
-//                mRecyclerView.setAdapter(mAdapter);
-//                mProgressCircle.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                //mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
-
-
-
         return binding.getRoot();
     }
 }
