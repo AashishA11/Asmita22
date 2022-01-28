@@ -70,7 +70,6 @@ public class ResultsFragment extends Fragment {
                     binding.getResult.setVisibility(View.VISIBLE);
                     binding.defaultResultIv.setVisibility(View.INVISIBLE);
                     binding.defaultResultTv.setVisibility(View.INVISIBLE);
-                    System.out.println("Result :"+Result);
                     ImageView imageView= binding.getRoot().findViewById(R.id.results);
                     Glide.with(getContext()).load(Result).into(imageView);
                     binding.getResult.setOnClickListener(new View.OnClickListener() {

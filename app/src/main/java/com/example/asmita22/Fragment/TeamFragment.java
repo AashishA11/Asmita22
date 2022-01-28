@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.asmita22.Adaptor.teamAdaptor;
+import com.example.asmita22.CustomProgressDialogue;
 import com.example.asmita22.Models.TeamModel;
 import com.example.asmita22.R;
 import com.example.asmita22.databinding.FragmentHomeBinding;
@@ -24,19 +25,21 @@ public class TeamFragment extends Fragment {
 
 
     FragmentTeamBinding binding;
+    CustomProgressDialogue dialogue;
     public TeamFragment() {
         // Required empty public constructor
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentTeamBinding.inflate(inflater,container,false);
         ArrayList<TeamModel> arrayList=new ArrayList<>();
+        dialogue=new CustomProgressDialogue(getContext());
+        dialogue.show();
         arrayList.add(new TeamModel("@drawable/a00","Dr. Sunnel Yadav", "Faculty In-Charge","mail"));
         arrayList.add(new TeamModel("@drawable/a01","Mr. Sahil Udayasingh", "President","9205177057"));
         arrayList.add(new TeamModel("@drawable/a18","Mr. Varun Bhardwaj", "General Secretary","9319866520"));
@@ -103,6 +106,7 @@ public class TeamFragment extends Fragment {
         arrayList.add(new TeamModel("@drawable/a63","Tabish Malik", "App Operations","7456990499"));
         teamAdaptor adaptor=new teamAdaptor(arrayList,getContext());
         binding.TeamRV.setAdapter(adaptor);
+        dialogue.dismiss();
         LinearLayoutManager layoutManager=new LinearLayoutManager(this.getContext());
         binding.TeamRV.setLayoutManager(layoutManager);
         return  binding.getRoot();

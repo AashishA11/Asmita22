@@ -28,11 +28,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Document;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -70,22 +73,26 @@ public class SponsorsFragment extends Fragment {
         SponserImg=(ImageView) view.findViewById(R.id.SponsorImage);
         //SFRV=(RecyclerView) view.findViewById(R.id.SponsorRv);
         ArrayList<SponsorsModel> list=new ArrayList<>();
-        list.add(new SponsorsModel(R.drawable.trixxter,"Trixxter"));
-        list.add(new SponsorsModel(R.drawable.sketch,"Sketch"));
-        list.add(new SponsorsModel(R.drawable.bgmi,"BGMI"));
-        list.add(new SponsorsModel(R.drawable.scribble,"Scribble"));
-        list.add(new SponsorsModel(R.drawable.sportquiz,"Sports Quiz"));
-
-
-
-
-        DocumentReference documentReference=firestore.collection("Sponsers").document("sp1");
-
+        CollectionReference Reference=firestore.collection("Sponsers");
         SponsorAdaptor adaptor=new SponsorAdaptor(list,getContext());
         binding.SponsorRv.setAdapter(adaptor);
-        //GridLayoutManager layoutManager=new GridLayoutManager( getContext(),2);
         LinearLayoutManager layoutManager =new LinearLayoutManager(getContext());
         binding.SponsorRv.setLayoutManager(layoutManager);
+        Reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    int pos=0;
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        SponsorsModel model=new SponsorsModel(document.getString("Image"),document.getString("Name"),document.getString("link"));
+                        list.add(model);
+                        adaptor.notifyItemInserted(pos++);
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Please try again later", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         return binding.getRoot();
     }
 }

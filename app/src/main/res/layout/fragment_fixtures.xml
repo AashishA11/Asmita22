@@ -6,56 +6,34 @@
     android:layout_height="match_parent"
     android:background="#313130"
     tools:context=".Fragment.ResultsFragment">
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:padding="10dp"
+        android:gravity="top"
         android:layout_height="match_parent">
-        <RelativeLayout
+        <TextView
             android:layout_width="match_parent"
-            android:gravity="top"
-            android:layout_height="wrap_content">
-            <TextView
+            android:text="Fixtures are not uploaded yet...."
+            android:textSize="30sp"
+            android:id="@+id/default_fixture_tv"
+            android:textColor="#FFFFF2"
+            android:fontFamily="@font/inconsolata_semibold"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/asmita_info"
+            android:id="@+id/default_fixture_iv"
+            android:foregroundGravity="center"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/fixtures"
+            android:visibility="invisible"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <WebView
+                android:id="@+id/web"
                 android:layout_width="match_parent"
-                android:text="Fixtures are not uploaded yet...."
-                android:textSize="30sp"
-                android:id="@+id/default_fixtures_tv"
-                android:textColor="#FFFFF2"
-                android:fontFamily="@font/inconsolata_semibold"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:src="@drawable/asmita_info"
-                android:id="@+id/default_fixtures_iv"
-                android:foregroundGravity="center"
-                android:layout_height="match_parent"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:id="@+id/fixtures"
-                android:layout_centerHorizontal="true"
-                android:layout_height="wrap_content"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_below="@id/fixtures"
-                android:id="@+id/get_fixtures"
-                android:layout_marginTop="10dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/info_boder"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/asmita_info"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:text="Download Fixtures"
-                    android:textSize="25sp"
-                    android:layout_gravity="center_vertical"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="#3366BB"
-                    android:fontFamily="@font/info_light"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>

@@ -83,6 +83,24 @@ public class OrgnaziersFragment extends Fragment {
                     arrayList.add(new TeamModel(pic,name,"Team Asmita 2022",phone));
                     adaptor.notifyItemInserted(pos++);
                 }
+                if(!documentSnapshot.getString("org5").equals("-1")) {
+                    String name=documentSnapshot.getString("org5");
+                    String pic="@drawable/"+name.substring(0,3);
+                    String phone=name.substring(3,13);
+                    name=name.substring(13);
+                    System.out.println("Name :"+name +" "+"Pic :"+pic);
+                    arrayList.add(new TeamModel(pic,name,"Team Asmita 2022",phone));
+                    adaptor.notifyItemInserted(pos++);
+                }
+                if(!documentSnapshot.getString("org6").equals("-1")) {
+                    String name=documentSnapshot.getString("org6");
+                    String pic="@drawable/"+name.substring(0,3);
+                    String phone=name.substring(3,13);
+                    name=name.substring(13);
+                    System.out.println("Name :"+name +" "+"Pic :"+pic);
+                    arrayList.add(new TeamModel(pic,name,"Team Asmita 2022",phone));
+                    adaptor.notifyItemInserted(pos++);
+                }
             }
         });
         binding.OrganizerRV.setAdapter(adaptor);
