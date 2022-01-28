@@ -28,7 +28,7 @@ tools:context=".Fragment.SponsorsFragment">
     <com.google.android.material.appbar.CollapsingToolbarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:contentScrim="@color/green"
+        app:contentScrim="#313130"
         app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
         <!--We are adding the image that we have added earlier

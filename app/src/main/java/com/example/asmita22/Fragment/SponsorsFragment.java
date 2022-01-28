@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.asmita22.Adaptor.SponsorAdaptor;
 import com.example.asmita22.Adaptor.homeAdaptor;
+import com.example.asmita22.Models.NotificationModel;
 import com.example.asmita22.Models.SponsorsModel;
 import com.example.asmita22.Models.homeModel;
 import com.example.asmita22.R;
@@ -29,6 +30,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -47,6 +54,8 @@ public class SponsorsFragment extends Fragment {
 
     FragmentSponsorsBinding binding;
     FirebaseFirestore firestore;
+    private DatabaseReference mDatabaseRef;
+
     public TextView SponserName;
     public ImageView SponserImg;
     RecyclerView SFRV;
@@ -69,8 +78,8 @@ public class SponsorsFragment extends Fragment {
          binding=FragmentSponsorsBinding.inflate(inflater,container,false);
         view=inflater.inflate(R.layout.fragment_info, container, false);
         firestore=FirebaseFirestore.getInstance();
-        SponserName=(TextView) view.findViewById(R.id.SponsorName);
-        SponserImg=(ImageView) view.findViewById(R.id.SponsorImage);
+       // SponserName=(TextView) view.findViewById(R.id.SponsorName);
+        //SponserImg=(ImageView) view.findViewById(R.id.SponsorImage);
         //SFRV=(RecyclerView) view.findViewById(R.id.SponsorRv);
         ArrayList<SponsorsModel> list=new ArrayList<>();
         CollectionReference Reference=firestore.collection("Sponsers");
