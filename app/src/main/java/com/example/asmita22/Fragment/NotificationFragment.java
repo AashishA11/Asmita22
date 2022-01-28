@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.asmita22.Adaptor.notificationAdaptor;
 import com.example.asmita22.Adaptor.teamAdaptor;
+import com.example.asmita22.CustomProgressDialogue;
 import com.example.asmita22.Models.NotificationModel;
 import com.example.asmita22.R;
 import com.example.asmita22.databinding.FragmentNotificationBinding;
@@ -49,6 +50,8 @@ public class NotificationFragment extends Fragment {
 
     private void getNotification() {
         ArrayList<NotificationModel> arrayList=new ArrayList<>();
+        CustomProgressDialogue object=new CustomProgressDialogue(getContext());
+        object.show();
         DatabaseReference reference=firebaseDatabase.getReference().child("Updates");
         notificationAdaptor adaptor=new notificationAdaptor(arrayList,getContext());
         LinearLayoutManager layoutManager=new LinearLayoutManager(this.getContext());
@@ -65,6 +68,7 @@ public class NotificationFragment extends Fragment {
                     info=dataSnapshot.child("Info").getValue().toString();
                     arrayList.add(new NotificationModel(event,date,info));
                     adaptor.notifyItemInserted(pos++);
+                    object.dismiss();
                 }
             }
             @Override
