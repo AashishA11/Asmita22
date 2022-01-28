@@ -10,10 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.asmita22.Models.SponsorsModel;
 import com.example.asmita22.Models.homeModel;
 import com.example.asmita22.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,13 +36,8 @@ public class SponsorAdaptor extends RecyclerView.Adapter<SponsorAdaptor.viewhold
     @Override
     public void onBindViewHolder(@NonNull SponsorAdaptor.viewholder holder, int position) {
         final SponsorsModel model= list.get(position);
-       // holder.SponsorImg.setImageResource(model.getImg());
+        Glide.with(context).load(model.getImg()).into(holder.SponsorImg);
         holder.SponsorName.setText(model.getSponsorName());
-//        Picasso.get().load(model.getImg())
-//                .fit()
-//                .placeholder(R.drawable.asmita_new)
-//                .centerCrop()
-//                .into(holder.SponsorImg);
     }
 
     @Override
