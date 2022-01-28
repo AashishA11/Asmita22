@@ -1,31 +1,25 @@
 package com.example.asmita22.Models;
 
 public class SponsorsModel {
-    int img;
+    String img;
     String SponsorName;
 
-    public SponsorsModel(String sponsorName) {
-        SponsorName = sponsorName;
+    String Link;
+    public SponsorsModel(String img, String sponsorName,String link) {
+        this.img=img;
+        this.SponsorName=sponsorName;
+        this.Link=link;
     }
 
-    public SponsorsModel(int img, String sponsorName) {
-        this.img = img;
-        SponsorName = sponsorName;
-    }
-
-    public int getImg() {
+    public String getImg() {
         return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
     }
 
     public String getSponsorName() {
         return SponsorName;
     }
 
-    public void setSponsorName(String sponsorName) {
-        SponsorName = sponsorName;
+    public String getLink() {
+        return Link;
     }
 }
