@@ -17,11 +17,16 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.asmita22.CustomProgressDialogue;
 import com.example.asmita22.R;
 import com.example.asmita22.TrixxterActivity;
 import com.example.asmita22.databinding.FragmentResultsBinding;
@@ -36,14 +41,17 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class ResultsFragment extends Fragment {
     FirebaseFirestore firebaseFirestore;
     FragmentResultsBinding binding;
-    String Result,eventName;
+    String Result,eventName,url;
+    View view;
     public ResultsFragment() {
         // Required empty public constructor
     }
@@ -56,101 +64,53 @@ public class ResultsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding= FragmentResultsBinding.inflate(inflater,container,false);
+        view=inflater.inflate(R.layout.fragment_results, container, false);
         firebaseFirestore=FirebaseFirestore.getInstance();
         TrixxterActivity activity = (TrixxterActivity) getActivity();
         eventName = activity.getName();
-        binding.getResult.setVisibility(View.INVISIBLE);
         DocumentReference reference=firebaseFirestore.collection("events").document(eventName);
         reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Result=documentSnapshot.getString("Result");
                 if(!Result.equals("-1")){
-                    binding.getResult.setVisibility(View.VISIBLE);
-                    binding.defaultResultIv.setVisibility(View.INVISIBLE);
-                    binding.defaultResultTv.setVisibility(View.INVISIBLE);
-                    ImageView imageView= binding.getRoot().findViewById(R.id.results);
-                    Glide.with(getContext()).load(Result).into(imageView);
-                    binding.getResult.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            DownloadImage(Result);
-                        }
-                    });
+                    view.findViewById(R.id.result).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.default_result_iv).setVisibility(View.INVISIBLE);
+                    view.findViewById(R.id.default_result_tv).setVisibility(View.INVISIBLE);
+                    pdfOpen(Result);
                 }
             }
         });
-        return binding.getRoot();
+        return view;
     }
-    void DownloadImage(String ImageUrl) {
+    private void pdfOpen(String fileUrl){
 
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 123);
-            showToast("Need Permission to access storage for Downloading Image");
-        } else {
-            showToast("Downloading Image...");
-            //Asynctask to create a thread to downlaod image in the background
-            new DownloadsImage().execute(ImageUrl);
-        }
-    }
-    class DownloadsImage extends AsyncTask<String, Void,Void> {
-
-        @Override
-        protected Void doInBackground(String... strings) {
-            URL url = null;
-            try {
-                url = new URL(strings[0]);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            Bitmap bm = null;
-            try {
-                bm =    BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            //Create Path to save Image
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/AsmitaResults2022"); //Creates app specific folder
-
-            if(!path.exists()) {
-                path.mkdirs();
-            }
-
-            File imageFile = new File(path, String.valueOf(eventName+System.currentTimeMillis())+".png"); // Imagename.png
-            FileOutputStream out = null;
-            try {
-                out = new FileOutputStream(imageFile);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            try{
-                bm.compress(Bitmap.CompressFormat.PNG, 100, out); // Compress Image
-                out.flush();
-                out.close();
-                // Tell the media scanner about the new file so that it is
-                // immediately available to the user.
-                MediaScannerConnection.scanFile(getContext(),new String[] { imageFile.getAbsolutePath() }, null,new MediaScannerConnection.OnScanCompletedListener() {
-                    public void onScanCompleted(String path, Uri uri) {
-                        // Log.i("ExternalStorage", "Scanned " + path + ":");
-                        //    Log.i("ExternalStorage", "-> uri=" + uri);
+        CustomProgressDialogue dialogue=new CustomProgressDialogue(getContext());
+        WebView webView = view.findViewById(R.id.web_result);
+        webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        url=null;
+        try {
+            url = "https://docs.google.com/gview?embedded=true&url=" + URLEncoder.encode(Result, "ISO-8859-1");
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+            dialogue.show();
+            webView.setWebViewClient(new WebViewClient(){
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    if (view.getTitle().equals("")) {
+                        view.reload();
                     }
-                });
-            } catch(Exception e) {
-            }
-            return null;
+                    else{
+                        dialogue.dismiss();
+                    }
+                }
+            });
+            webView.loadUrl(url);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            showToast("Result Saved in Pictures/AsmitaResults2022!");
-        }
-    }
-    void showToast(String msg){
-        Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
     }
 }

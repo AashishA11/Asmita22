@@ -78,9 +78,6 @@ public class SponsorsFragment extends Fragment {
          binding=FragmentSponsorsBinding.inflate(inflater,container,false);
         view=inflater.inflate(R.layout.fragment_info, container, false);
         firestore=FirebaseFirestore.getInstance();
-       // SponserName=(TextView) view.findViewById(R.id.SponsorName);
-        //SponserImg=(ImageView) view.findViewById(R.id.SponsorImage);
-        //SFRV=(RecyclerView) view.findViewById(R.id.SponsorRv);
         ArrayList<SponsorsModel> list=new ArrayList<>();
         CollectionReference Reference=firestore.collection("Sponsers");
         SponsorAdaptor adaptor=new SponsorAdaptor(list,getContext());

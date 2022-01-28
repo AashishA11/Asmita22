@@ -106,7 +106,7 @@ public class FixturesFragment extends Fragment {
     private void pdfOpen(String fileUrl){
 
         CustomProgressDialogue dialogue=new CustomProgressDialogue(getContext());
-        WebView webView = view.findViewById(R.id.web);
+        WebView webView = view.findViewById(R.id.web_fixture);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
@@ -114,21 +114,23 @@ public class FixturesFragment extends Fragment {
         url=null;
         try {
             url = "https://docs.google.com/gview?embedded=true&url=" + URLEncoder.encode(Fixtures, "ISO-8859-1");
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+            dialogue.show();
+            webView.setWebViewClient(new WebViewClient(){
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    if (view.getTitle().equals("")) {
+                        view.reload();
+                    }
+                    else{
+                        dialogue.dismiss();
+                    }
+                }
+            });
+            webView.loadUrl(url);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        webView.loadUrl(url);
-        webView.setWebChromeClient(new WebChromeClient() {
-            public void onProgressChanged(WebView view, int progress) {
-                if (progress < 100) {
-                    dialogue.show();
-                }
-                if (progress  == 100) {
-                    dialogue.dismiss();
-                }
-            }
-        });
     }
 }
