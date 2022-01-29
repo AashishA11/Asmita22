@@ -105,6 +105,7 @@ public class FixturesFragment extends Fragment {
     }
     private void pdfOpen(String fileUrl){
 
+
         CustomProgressDialogue dialogue=new CustomProgressDialogue(getContext());
         WebView webView = view.findViewById(R.id.web_fixture);
         webView.setWebViewClient(new WebViewClient());
