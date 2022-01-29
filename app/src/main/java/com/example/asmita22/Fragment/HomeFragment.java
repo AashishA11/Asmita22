@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
         list.add(new homeModel(R.drawable.smashkarts,"Smash Karts"));
         list.add(new homeModel(R.drawable.valorent,"Valorant"));
         list.add(new homeModel(R.drawable.auction,"Auction"));
-         list.add(new homeModel(R.drawable.chess,"Chess"));
+        list.add(new homeModel(R.drawable.chess,"Chess"));
 
         homeAdaptor adaptor=new homeAdaptor(list,getContext());
         binding.HomeRV.setAdapter(adaptor);

@@ -22,6 +22,7 @@
                 android:id="@+id/EventImg"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/asmita_new" />
