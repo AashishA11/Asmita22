@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.asmita22.Adaptor.SponsorAdaptor;
 import com.example.asmita22.Adaptor.homeAdaptor;
+import com.example.asmita22.CustomProgressDialogue;
 import com.example.asmita22.Models.NotificationModel;
 import com.example.asmita22.Models.SponsorsModel;
 import com.example.asmita22.Models.homeModel;
@@ -84,6 +85,8 @@ public class SponsorsFragment extends Fragment {
         binding.SponsorRv.setAdapter(adaptor);
         LinearLayoutManager layoutManager =new LinearLayoutManager(getContext());
         binding.SponsorRv.setLayoutManager(layoutManager);
+        CustomProgressDialogue dialogue=new CustomProgressDialogue(getContext());
+        dialogue.show();
         Reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -93,6 +96,7 @@ public class SponsorsFragment extends Fragment {
                         SponsorsModel model=new SponsorsModel(document.getString("Image"),document.getString("Name"),document.getString("link"));
                         list.add(model);
                         adaptor.notifyItemInserted(pos++);
+                        dialogue.dismiss();
                     }
                 } else {
                     Toast.makeText(getContext(), "Please try again later", Toast.LENGTH_SHORT).show();
