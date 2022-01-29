@@ -34,8 +34,8 @@
                     android:layout_width="350dp"
                     android:layout_height="350dp"
                     android:layout_centerInParent="true"
+                    android:alpha="0.3"
                     android:foregroundGravity="fill"
-                    android:alpha="0.5"
                     android:src="@drawable/asmita_info" />
                 <TextView
                     android:id="@+id/info_TV"

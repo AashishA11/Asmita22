@@ -13,7 +13,8 @@
         <TextView
             android:layout_width="match_parent"
             android:text="Fixtures are not uploaded yet...."
-            android:textSize="30sp"
+            android:textSize="35sp"
+            android:layout_margin="10dp"
             android:id="@+id/default_fixture_tv"
             android:textColor="#FFFFF2"
             android:fontFamily="@font/inconsolata_semibold"

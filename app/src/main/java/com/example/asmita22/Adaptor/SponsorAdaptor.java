@@ -1,6 +1,8 @@
 package com.example.asmita22.Adaptor;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +39,13 @@ public class SponsorAdaptor extends RecyclerView.Adapter<SponsorAdaptor.viewhold
     public void onBindViewHolder(@NonNull SponsorAdaptor.viewholder holder, int position) {
         final SponsorsModel model= list.get(position);
         Glide.with(context).load(model.getImg()).into(holder.SponsorImg);
+        holder.SponsorImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getLink()));
+                context.startActivity(browserIntent);
+            }
+        });
         holder.SponsorName.setText(model.getSponsorName());
     }
 
