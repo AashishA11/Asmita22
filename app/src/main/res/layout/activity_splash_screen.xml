@@ -10,10 +10,10 @@
     tools:context=".SplashScreen">
 
     <ImageView
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:forceDarkAllowed="false"
         android:src="@drawable/splash"
         android:layout_height="wrap_content"/>
+
 </RelativeLayout>
