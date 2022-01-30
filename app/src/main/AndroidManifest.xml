@@ -18,7 +18,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:theme="@style/Theme.Asmita2022"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
