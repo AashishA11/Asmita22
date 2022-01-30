@@ -42,7 +42,7 @@ public class TeamFragment extends Fragment {
         dialogue.show();
         arrayList.add(new TeamModel("@drawable/a00","Dr. Sunnel Yadav", "Faculty In-Charge","mail"));
         arrayList.add(new TeamModel("@drawable/a01","Mr. Sahil Udayasingh", "President","9205177057"));
-        arrayList.add(new TeamModel("@drawable/a18","Mr. Varun Bhardwaj", "General Secretary","9319866520"));
+        arrayList.add(new TeamModel("@drawable/a18","Varun Bhardwaj", "General Secretary","9319866520"));
         arrayList.add(new TeamModel("@drawable/a03","Ashish Tyagi", "Sports Secretary","7818896250"));
         arrayList.add(new TeamModel("@drawable/a04","Harsh Meena", "Fest Coordinator","9330319099"));
         arrayList.add(new TeamModel("@drawable/a05","Hritik Chauhan", "Fest Coordinator","9068322490"));
