@@ -102,7 +102,7 @@ public class TeamFragment extends Fragment {
         arrayList.add(new TeamModel("@drawable/a60","Shashirith", "Creatives","6300973551"));
         arrayList.add(new TeamModel("@drawable/a57","Shadaan Hussain", "Creatives","8989058973"));
         arrayList.add(new TeamModel("@drawable/a61","Anshika Jain", "Creatives","8989058973"));
-        arrayList.add(new TeamModel("@drawable/a62","Aashish Agarwal", "App Operations","9975679288"));
+        arrayList.add(new TeamModel("@drawable/a62","Aashish Agarwal", "App Operations","8875679288"));
         arrayList.add(new TeamModel("@drawable/a63","Tabish Malik", "App Operations","7456990499"));
         teamAdaptor adaptor=new teamAdaptor(arrayList,getContext());
         binding.TeamRV.setAdapter(adaptor);
