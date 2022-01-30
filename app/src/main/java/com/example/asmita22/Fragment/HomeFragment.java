@@ -38,17 +38,18 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding= FragmentHomeBinding.inflate(inflater,container,false);
         ArrayList<homeModel> list=new ArrayList<>();
+        list.add(new homeModel(R.drawable.bgmi,"BGMI"));
+        list.add(new homeModel(R.drawable.valorent,"Valorant"));
+        list.add(new homeModel(R.drawable.smashkarts,"Smash Karts"));
+        list.add(new homeModel(R.drawable.chess,"Chess"));
         list.add(new homeModel(R.drawable.trixxter,"Trixxter"));
         list.add(new homeModel(R.drawable.sketch,"Sketch"));
-        list.add(new homeModel(R.drawable.bgmi,"BGMI"));
+        list.add(new homeModel(R.drawable.challengeweek,"Challenge Week"));
         list.add(new homeModel(R.drawable.scribble,"Scribble"));
         list.add(new homeModel(R.drawable.sportquiz,"Sports Quiz"));
-        list.add(new homeModel(R.drawable.rocketleague,"Rocket League"));
-        list.add(new homeModel(R.drawable.challengeweek,"Challenge Week"));
-        list.add(new homeModel(R.drawable.smashkarts,"Smash Karts"));
-        list.add(new homeModel(R.drawable.valorent,"Valorant"));
+        list.add(new homeModel(R.drawable.rocketleaguea,"Rocket League"));
         list.add(new homeModel(R.drawable.auction,"Auction"));
-        list.add(new homeModel(R.drawable.chess,"Chess"));
+
 
         homeAdaptor adaptor=new homeAdaptor(list,getContext());
         binding.HomeRV.setAdapter(adaptor);
