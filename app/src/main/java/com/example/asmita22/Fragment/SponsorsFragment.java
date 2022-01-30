@@ -92,10 +92,15 @@ public class SponsorsFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     int pos=0;
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        SponsorsModel model=new SponsorsModel(document.getString("Image"),document.getString("Name"),document.getString("link"));
-                        list.add(model);
-                        adaptor.notifyItemInserted(pos++);
+                    if(task.getResult().size()>0) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            SponsorsModel model = new SponsorsModel(document.getString("Image"), document.getString("Name"), document.getString("link"));
+                            list.add(model);
+                            adaptor.notifyItemInserted(pos++);
+                            dialogue.dismiss();
+                        }
+                    }
+                    else{
                         dialogue.dismiss();
                     }
                 } else {
