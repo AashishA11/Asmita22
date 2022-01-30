@@ -3,8 +3,8 @@
     <style name="Theme.Asmita22" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="android:forceDarkAllowed" tools:targetApi="R">false</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/dark</item>
+        <item name="colorPrimaryVariant">@color/dark</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnBackground">@color/white</item>
         <!-- Secondary brand color. -->
@@ -18,8 +18,8 @@
     <style name="Theme.Asmita2022" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:forceDarkAllowed" tools:targetApi="R">false</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnBackground">@color/white</item>
         <!-- Secondary brand color. -->
