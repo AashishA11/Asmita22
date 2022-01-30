@@ -22,8 +22,11 @@ tools:context=".Fragment.NotificationFragment">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:background="#313130"
             android:scaleType="centerCrop"
-            android:src="@drawable/asmita_new"
+            android:src="@drawable/asmitahome"
+            android:padding="20dp"
+            android:forceDarkAllowed="false"
             app:layout_collapseMode="parallax" />
 
         <androidx.appcompat.widget.Toolbar
