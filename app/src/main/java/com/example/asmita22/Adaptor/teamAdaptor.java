@@ -63,7 +63,7 @@ public class teamAdaptor extends RecyclerView.Adapter<teamAdaptor.viewholder> {
                 if(model.getName().equals("Dr. Sunnel Yadav")){
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("plain/text");
-                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "iit2020180@iiita.ac.in" });
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "fi.sports@iiita.ac.in" });
                     context.startActivity(Intent.createChooser(intent, ""));
                 }
                 else {
