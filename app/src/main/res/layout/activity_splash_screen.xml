@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-     android:id="@+id/rl1"
+    android:id="@+id/rl1"
     android:forceDarkAllowed="false"
     android:background="@color/white"
     tools:context=".SplashScreen">
 
-        <ImageView
-        android:id="@+id/imageView2"
+ 
+    <ImageView
+        android:layout_centerVertical="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/splash" />
+        android:forceDarkAllowed="false"
+        android:src="@drawable/splash"
+        android:layout_height="wrap_content"/>
+ 
+        
+ 
 
 </RelativeLayout>
