@@ -1,4 +1,5 @@
 # Asmita-2022 
+The following application displays the fixtures, results and organizers information of the events in the sports fest of IIIT-Allahabad. Alongside the information, it also notifies and updates the users regarding the on-going activities of the Asmita Events.
 Asmita 2022 is **Annual Sports Fest of IIIT-A**. Asmita 2022 app is used to set a smooth communication between participants and Organizers. Some of its features include
 - Fixtures of various events
 - Results of various events
