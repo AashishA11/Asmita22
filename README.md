@@ -1,12 +1,12 @@
 # Asmita-2022 
 The following application displays the fixtures, results and organizers information of the events in the sports fest of IIIT-Allahabad. Alongside the information, it also notifies and updates the users regarding the on-going activities of the Asmita Events.
 Asmita 2022 is **Annual Sports Fest of IIIT-A**. Asmita 2022 app is used to set a smooth communication between participants and Organizers. Some of its features include
-- Fixtures of various events
-- Results of various events
-- General Updates
-- Contacts Of Organizers
-- About event (Date , Type and How to participate )
-- Notification of Updates
+
+- Keeps you up to date with ongoing events.
+- You can check fixtures and results of any event right in your hand.
+- Notifies you about highlights/reschedulings.
+- You can contact organiser or team member through the app in case of queries.
+- You can also get details of the sponsers of the event.
 
 This Project uses Native Android Development using **Java and Firebase**.
 
